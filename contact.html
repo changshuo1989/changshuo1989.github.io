@@ -98,14 +98,24 @@
     </div>
     <script>
       function postData(){    
-             var firstname=$('#form_firstname').val();
-             var lastname=$('#form_lastname').val();
-             var email=$('#form_email').val();
-             var phone=$('#form_phone').val();
-             var message=$('#form_message').val();
-             console.log(firstname+' '+lastname+' '+email+' '+phone+' '+message);
-      }
-            
+        var firstname=$('#form_firstname').val();
+        var lastname=$('#form_lastname').val();
+        var email=$('#form_email').val();
+        var phone=$('#form_phone').val();
+        var message=$('#form_message').val();
+        //console.log(firstname+' '+lastname+' '+email+' '+phone+' '+message);
+        var http = new XMLHttpRequest();
+        var url = '104.196.126.211:8080';
+        var params = 'firstname='+firstname+'&lastname='+lastname+'&email='+email+'&phone='+phone+'&message='+message;
+        http.open('POST', url, true);
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange=function(){
+          if(http.readyState == 4 && http.status == 200){
+            console.log(http.responseText);
+          }
+        }
+        http.send(params);
+      }      
     </script>
   </body>
 </html>
