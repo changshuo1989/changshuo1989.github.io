@@ -105,7 +105,7 @@
         var message=$('#form_message').val();
         //console.log(firstname+' '+lastname+' '+email+' '+phone+' '+message);
         var http = new XMLHttpRequest();
-        var url = 'http://104.196.126.211:8080';
+        var url = 'http://104.196.126.211:3000';
         var params = 'firstname='+firstname+'&lastname='+lastname+'&email='+email+'&phone='+phone+'&message='+message;
         http.open('POST', url, true);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
