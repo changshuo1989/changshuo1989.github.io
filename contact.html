@@ -36,7 +36,7 @@
           <h1>Contact Me</h1>
           <h3>Questions / Comments can go to <a href='mailto:gaochangshuo1989@gmail.com'>gaochangshuo1989@gmail.com</a></h3>
           <hr class='intro-divider'>
-          <form id='contact-form' method='post' action='http://104.196.126.211:3000/' role='form'>
+          <form id='contact-form' onsubmit='postData()' role='form'>
             <div class="messages"></div>
             <div class='controls'>
               <div class='row'>
@@ -107,6 +107,7 @@
         var http = new XMLHttpRequest();
         var url = 'http://104.196.126.211:3000/';
         var params = 'firstname='+firstname+'&lastname='+lastname+'&email='+email+'&phone='+phone+'&message='+message;
+        console.log(params);
         http.open('POST', url, true);
         http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         http.onreadystatechange=function(){
